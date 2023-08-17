@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.MyApp</mainClass>
+                            <mainClass>main.java.com.example.MyApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
