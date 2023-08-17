@@ -16,7 +16,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -31,11 +31,13 @@
             </plugin>
         </plugins>
     </build>
-    <!-- -->        
-    <distributionManagement>
-        <repository>
-            <id>artifactory</id>
-            <url>http://3.135.1.139:8081/artifactory/my-maven-local-releases</url>
-        </repository>
-    </distributionManagement>           
+       
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>81c2d033e330-snapshots</name>
+			<url>http://3.135.1.139:8081/artifactory/my-maven-local-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>         
+	
 </project>
