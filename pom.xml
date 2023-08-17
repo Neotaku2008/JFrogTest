@@ -35,7 +35,7 @@
     <distributionManagement>
         <repository>
             <id>artifactory</id>
-            <url>http://3.135.1.139:8082/ui/native/my-maven-local-releases</url>
+            <url>http://3.135.1.139:8081/artifactory/my-maven-local-releases</url>
         </repository>
     </distributionManagement>           
 </project>
