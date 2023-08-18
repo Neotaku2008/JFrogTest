@@ -40,7 +40,11 @@ jobs:
 
     - name: Print JAR Content
       run: |
-        cat $GITHUB_WORKSPACE/$FILENAME
-        
+        cat $GITHUB_WORKSPACE/${{ env.FILENAME }}
+      env:
+        FILENAME: $FILENAME
+                
     - name: Run JAR
-      run: java -jar $GITHUB_WORKSPACE/$FILENAME
+      run: java -jar $GITHUB_WORKSPACE/${{ env.FILENAME }}
+      env:
+        FILENAME: $FILENAME
