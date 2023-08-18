@@ -12,6 +12,9 @@ jobs:
   download-and-run-jar:
     runs-on: ubuntu-latest
 
+    env:
+      FILENAME: "my-java-app-1.0.0.jar"  # Declaración global de FILENAME
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -24,7 +27,6 @@ jobs:
         ARTIFACT_ID="my-java-app"
         VERSION="1.0.0"
         
-        FILENAME="my-java-app-${VERSION}.jar"        
         curl -u ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }} -O \
           "$ARTIFACTORY_URL/$REPO_KEY/$GROUP_ID/$ARTIFACT_ID/$VERSION/$FILENAME"
     
@@ -38,6 +40,4 @@ jobs:
         cat $GITHUB_WORKSPACE/$FILENAME
         
     - name: Run JAR
-      run: java -jar $GITHUB_WORKSPACE/${{ env.FILENAME }}
-      env:
-        FILENAME: $FILENAME
+      run: java -jar $GITHUB_WORKSPACE/$FILENAME
