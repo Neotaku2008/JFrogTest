@@ -27,6 +27,11 @@ jobs:
         FILENAME="my-java-app-${VERSION}.jar"        
         curl -u ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }} -O \
           "$ARTIFACTORY_URL/$REPO_KEY/$GROUP_ID/$ARTIFACT_ID/$VERSION/$FILENAME"
+
+    - name: Debug
+      run: |
+        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        echo "FILENAME: $FILENAME"
     
     - name: Verify Downloaded JAR
       run: |
