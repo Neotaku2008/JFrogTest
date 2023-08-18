@@ -13,6 +13,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Create .m2 directory
+      run: mkdir -p $HOME/.m2
+
     - name: Copy settings.xml
       run: cp .github/settings.xml $HOME/.m2/settings.xml
 
@@ -27,6 +30,3 @@ jobs:
 
     - name: Publish to Artifactory
       run: mvn deploy
-#      env:
-#        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-#        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
