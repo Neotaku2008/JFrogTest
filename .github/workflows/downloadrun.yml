@@ -38,4 +38,4 @@ jobs:
         cat $GITHUB_WORKSPACE/$FILENAME
         
     - name: Run JAR
-      run: java -jar $GITHUB_WORKSPACE/$FILENAME      
+      run: java -jar $GITHUB_WORKSPACE/$FILENAME
