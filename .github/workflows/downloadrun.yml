@@ -29,4 +29,4 @@ jobs:
           "$ARTIFACTORY_URL/$REPO_KEY/$GROUP_ID/$ARTIFACT_ID/$VERSION/$FILENAME"
 
     - name: Run JAR
-      run: java -jar $FILENAME        
+      run: java -jar $GITHUB_WORKSPACE/$FILENAME      
