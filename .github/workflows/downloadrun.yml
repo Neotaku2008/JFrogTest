@@ -23,10 +23,19 @@ jobs:
         GROUP_ID="com/example"
         ARTIFACT_ID="my-java-app"
         VERSION="1.0.0"
-        FILENAME="my-java-app-${VERSION}.jar"
         
+        FILENAME="my-java-app-${VERSION}.jar"        
         curl -u ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }} -O \
           "$ARTIFACTORY_URL/$REPO_KEY/$GROUP_ID/$ARTIFACT_ID/$VERSION/$FILENAME"
+    
+    - name: Verify Downloaded JAR
+      run: |
+        ls -l $GITHUB_WORKSPACE
+        ls -l $GITHUB_WORKSPACE/$FILENAME    
 
+    - name: Print JAR Content
+      run: |
+        cat $GITHUB_WORKSPACE/$FILENAME
+        
     - name: Run JAR
       run: java -jar $GITHUB_WORKSPACE/$FILENAME      
